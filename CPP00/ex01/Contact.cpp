@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:41:02 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/03/15 16:34:11 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:18:00 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,108 +17,104 @@ Contact::Contact()
 
 }
 
-void	Contact::add_FirstName()
+Contact::~Contact()
 {
-	while (m_firstName.empty())
-	{
-		std::cout << "Enter the contact's first name : ";
-		getline(std::cin, m_firstName);
-		std::cout << "\n";
-	}
-	return ;
+
 }
 
-void	Contact::add_LastName()
+std::string	new_getline()
 {
-	while (m_lastName.empty())
+	std::string	input;
+
+	while (input.length() < 1)
 	{
-		std::cout << "Enter the contact's last name : ";
-		getline(std::cin, m_lastName);
-		std::cout << "\n";
+		if (!(std::getline(std::cin, input)))
+			return (NULL);
 	}
-	return ;
+	return (input);
 }
 
-void	Contact::add_NickName()
+int	Contact::add_new(Contact *contact)
 {
-	while (m_nickName.empty())
+	std::string input;
+
+	std::cout << "Enter First Name : ";
+	while (input.length() < 1)
 	{
-		std::cout << "Enter the contact's nickname : ";
-		getline(std::cin, m_nickName);
-		std::cout << "\n";
+		if (!(std::getline(std::cin, input)))
+			return (1);
 	}
-	return ;
+	contact->first_name = input;
+	input.erase();
+
+	std::cout << "Enter Last Name : ";
+	while (input.length() < 1)
+	{
+		input.erase();
+		if (!(std::getline(std::cin, input)))
+			return (1);
+	}
+	contact->last_name = input;
+	input.erase();
+
+	std::cout << "Enter Nickname : ";
+	while (input.length() < 1)
+	{
+		input.erase();
+		if (!(std::getline(std::cin, input)))
+			return (1);
+	}
+	contact->nickname = input;
+	input.erase();
+
+	std::cout << "Enter Phone Number : ";
+	while (input.length() < 1)
+	{
+		input.erase();
+		if (!(std::getline(std::cin, input)))
+			return (1);
+	}
+	contact->phone_number = input;
+	input.erase();
+
+	std::cout << "Enter Darkest Secret : ";
+	while (input.length() < 1)
+	{
+		input.erase();
+		if (!(std::getline(std::cin, input)))
+			return (1);
+	}
+	contact->darkest_secret = input;
+
+	return (0);
 }
 
-void	Contact::add_PhoneNumber()
+void	Contact::show_contact() const
 {
-	while (m_phoneNumber.empty())
-	{
-		std::cout << "Enter the contact's phone number : ";
-		getline(std::cin, m_phoneNumber);
-		std::cout << "\n";
-	}
-	return ;
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+	std::cout << "First Name : " << first_name << std::endl;
+	std::cout << "Last Name : " << last_name << std::endl;
+	std::cout << "Nickname : " << nickname << std::endl;
+	std::cout << "Phone Number : " << phone_number << std::endl;
+	std::cout << "Darkest Secret : " << darkest_secret << std::endl;
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 }
 
-void	Contact::add_DarkSecret()
+void	Contact::list_contact(int i) const
 {
-	while (m_darkSecret.empty())
-	{
-		std::cout << "Enter the contact's darkest secret : ";
-		getline(std::cin, m_darkSecret);
-		std::cout << "\n";
-	}
-	return ;
-}
-
-void	Contact::show_FirstName() const
-{
-	if (m_firstName.length() > 10)
-	{
-		std::cout << m_firstName.substr(0, 9) << ".";
-	}
+	std::cout << "|" << std::right << std::setw(9) << (i + 1) << "|";
+	if (first_name.size() > 10)
+		std::cout << std::right << std::setw(9) << first_name.substr(0, 9) << "." << "|";
 	else
-	{
-		int	len = 10 - m_firstName.length();
-		for (int i(0); i < len; i++)
-		{
-			std::cout << " ";
-		}
-		std::cout << m_firstName;
-	}
-}
+		std::cout << std::right << std::setw(10) << first_name.substr(0, 10) << "|";
 
-void	Contact::show_LastName() const
-{
-	if (m_lastName.length() > 10)
-	{
-		std::cout << m_lastName.substr(0, 9) << ".";
-	}
+	if (last_name.size() > 10)
+		std::cout << std::right << std::setw(9) << last_name.substr(0, 9) << "." << "|";
 	else
-	{
-		int	len = 10 - m_lastName.length();
-		for (int i(0); i < len; i++)
-		{
-			std::cout << " ";
-		}
-		std::cout << m_lastName;
-	}
-}
+		std::cout << std::right << std::setw(10) << last_name.substr(0, 10) << "|";
 
-void	Contact::show_NickName() const
-{
-	if (m_nickName.length() > 10)
-	{
-		std::cout << m_nickName.substr(0, 9) << ".";
-	}
+	if (nickname.size() > 10)
+		std::cout << std::right << std::setw(9) << nickname.substr(0, 9) << "." << "|" << std::endl;
 	else
-	{
-		int	len = 10 - m_nickName.length();
-		for (int i(0); i < len; i++)
-		{
-			std::cout << " ";
-		}
-		std::cout << m_nickName;
-	}
+		std::cout << std::right << std::setw(10) << nickname.substr(0, 10) << "|" << std::endl;
 }
