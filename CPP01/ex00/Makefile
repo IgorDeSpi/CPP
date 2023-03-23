@@ -6,7 +6,7 @@
 #    By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 13:55:25 by ide-spir          #+#    #+#              #
-#    Updated: 2023/03/21 14:12:45 by ide-spir         ###   ########.fr        #
+#    Updated: 2023/03/23 11:57:28 by ide-spir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,17 +34,17 @@ EXEC = zombie
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(COMPILE) $(FLAGS) $(OBJS) $(EXE_NAME)
+	@$(COMPILE) $(FLAGS) $(OBJS) $(EXE_NAME)
 
 clean:
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(EXEC)
+	@rm -rf $(EXEC)
 
 re:	fclean all
 
 .cpp.o:
-	$(COMPILE) $(FLAGS) -c $< -o $(<:.cpp=.o)
+	@$(COMPILE) $(FLAGS) -c $< -o $(<:.cpp=.o)
 
 .PHONY : all clean fclean re
