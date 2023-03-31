@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/31 14:15:00 by ide-spir          #+#    #+#              #
-#    Updated: 2023/03/31 15:58:57 by ide-spir         ###   ########.fr        #
+#    Created: 2023/03/31 16:03:41 by ide-spir          #+#    #+#              #
+#    Updated: 2023/03/31 16:30:21 by ide-spir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -----------------------------------------VARS-------------------------------
 
-NAME = harl_filter
+NAME = fixed
 
 SRCS =	main.cpp \
-		Harl.cpp
+		Fixed.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -23,9 +23,9 @@ COMPILE = clang++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-EXE_NAME = -o harl_filter
+EXE_NAME = -o fixed
 
-EXEC = harl_filter
+EXEC = fixed
 
 # -------------------------------------RULES-----------------------------------
 
