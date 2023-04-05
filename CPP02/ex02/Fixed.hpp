@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:34:51 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/03 18:17:54 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/05 19:20:30 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,22 @@ class Fixed
 		Fixed(void);
 		Fixed(int const value);
 		Fixed(float const value);
-		Fixed(Fixed const &autre);
+		Fixed(Fixed const &other);
 		~Fixed();
 
-		Fixed	&operator=(Fixed const &autre);
+		Fixed	&operator=(Fixed const &other);
 
-		bool	operator>(Fixed const &autre) const;
-		bool	operator<(Fixed const &autre) const;
-		bool	operator>=(Fixed const &autre) const;
-		bool	operator<=(Fixed const &autre) const;
-		bool	operator==(Fixed const &autre) const;
-		bool	operator!=(Fixed const &autre) const;
+		bool	operator>(Fixed const &other) const;
+		bool	operator<(Fixed const &other) const;
+		bool	operator>=(Fixed const &other) const;
+		bool	operator<=(Fixed const &other) const;
+		bool	operator==(Fixed const &other) const;
+		bool	operator!=(Fixed const &other) const;
 
-		Fixed	operator+(Fixed const &autre) const;
-		Fixed	operator-(Fixed const &autre) const;
-		Fixed	operator*(Fixed const &autre) const;
-		Fixed	operator/(Fixed const &autre) const;
+		Fixed	operator+(Fixed const &other) const;
+		Fixed	operator-(Fixed const &other) const;
+		Fixed	operator*(Fixed const &other) const;
+		Fixed	operator/(Fixed const &other) const;
 
 		Fixed	operator++(int);
 		Fixed	operator--(int);

@@ -6,7 +6,13 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:41:17 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/03 15:41:17 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/05 20:37:09 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Point.hpp"
+
+int main(int argc, char **argv)
+{
+    
+}

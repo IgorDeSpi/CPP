@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:35:01 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/03 19:07:08 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/05 19:20:10 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ Fixed::Fixed(float const value) : _rawBits(roundf(value * (1 << _bits)))
 
 }
 
-Fixed::Fixed(Fixed const &autre)
+Fixed::Fixed(Fixed const &other)
 {
-	*this = autre;
+	*this = other;
 }
 
 Fixed::~Fixed()
@@ -57,61 +57,61 @@ int		Fixed::toInt(void) const
 	return (static_cast<int>(this->getRawBits()) >> _bits);
 }
 
-Fixed	&Fixed::operator=(Fixed const &autre)
+Fixed	&Fixed::operator=(Fixed const &other)
 {
-	this->_rawBits = autre.getRawBits();
+	this->_rawBits = other.getRawBits();
 	return *this;
 }
 
-bool	Fixed::operator>(Fixed const &autre) const
+bool	Fixed::operator>(Fixed const &other) const
 {
-	return (this->getRawBits() > autre.getRawBits());
+	return (this->getRawBits() > other.getRawBits());
 }
 
-bool	Fixed::operator<(Fixed const &autre) const
+bool	Fixed::operator<(Fixed const &other) const
 {
-	return (this->getRawBits() < autre.getRawBits());
+	return (this->getRawBits() < other.getRawBits());
 }
 
-bool	Fixed::operator>=(Fixed const &autre) const
+bool	Fixed::operator>=(Fixed const &other) const
 {
-	return (this->getRawBits() >= autre.getRawBits());
+	return (this->getRawBits() >= other.getRawBits());
 }
 
-bool	Fixed::operator<=(Fixed const &autre) const
+bool	Fixed::operator<=(Fixed const &other) const
 {
-	return (this->getRawBits() <= autre.getRawBits());
+	return (this->getRawBits() <= other.getRawBits());
 }
 
-bool	Fixed::operator==(Fixed const &autre) const
+bool	Fixed::operator==(Fixed const &other) const
 {
-	return (this->getRawBits() == autre.getRawBits());
+	return (this->getRawBits() == other.getRawBits());
 }
 
-bool	Fixed::operator!=(Fixed const &autre) const
+bool	Fixed::operator!=(Fixed const &other) const
 {
-	return (this->getRawBits() != autre.getRawBits());
+	return (this->getRawBits() != other.getRawBits());
 }
 
-Fixed	Fixed::operator+(Fixed const &autre) const
+Fixed	Fixed::operator+(Fixed const &other) const
 {
-	(void)autre;
-	return (roundf(this->toFloat() + autre.toFloat()));
+	(void)other;
+	return (roundf(this->toFloat() + other.toFloat()));
 }
 
-Fixed	Fixed::operator-(Fixed const &autre) const
+Fixed	Fixed::operator-(Fixed const &other) const
 {
-	return (this->toFloat() - autre.toFloat());
+	return (this->toFloat() - other.toFloat());
 }
 
-Fixed	Fixed::operator*(Fixed const &autre) const
+Fixed	Fixed::operator*(Fixed const &other) const
 {
-	return (this->toFloat() * autre.toFloat());
+	return (this->toFloat() * other.toFloat());
 }
 
-Fixed	Fixed::operator/(Fixed const &autre) const
+Fixed	Fixed::operator/(Fixed const &other) const
 {
-	return (this->toFloat() / autre.toFloat());
+	return (this->toFloat() / other.toFloat());
 }
 
 Fixed	Fixed::operator++(int)
