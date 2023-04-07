@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:57:01 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/06 23:39:28 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/07 10:34:30 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ClapTrap Default constructor called" << std::endl;
     this->setName("Undefined");
 }
 
 ClapTrap::ClapTrap(std::string const &name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-    std::cout << "Overload Default constructor called" << std::endl;
+    std::cout << "ClapTrap Overload Default constructor called" << std::endl;
     if (name.size() < 1)
         this->setName("Undefined");
     std::cout << "Name is " << *this 
@@ -31,13 +31,13 @@ ClapTrap::ClapTrap(std::string const &name) : _name(name), _hitPoints(10), _ener
 
 ClapTrap::ClapTrap(ClapTrap const &other)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ClapTrap Copy constructor called" << std::endl;
     *this = other;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
 const std::string &ClapTrap::getName() const
@@ -62,7 +62,7 @@ int ClapTrap::getAttackDamage() const
 
 ClapTrap    &ClapTrap::operator=(ClapTrap const &other)
 {
-    std::cout << "Copy assignement operator called" << std::endl;
+    std::cout << "ClapTrap Copy assignement operator called" << std::endl;
     this->setName(other.getName());
     this->setHitPoints(other.getHitPoints());
     this->setEnergyPoints(other.getEnergyPoints());
