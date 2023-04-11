@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:14:51 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/07 10:37:05 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:43:28 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ ClapTrap::ClapTrap(std::string const &name) : _name(name), _hitPoints(10), _ener
     std::cout << "ClapTrap Overload Default constructor called" << std::endl;
     if (name.size() < 1)
         this->setName("Undefined");
-    std::cout << "Name is " << *this 
-    << " with " << (this->getHitPoints()) << " Hit points" 
-    << ", with " << (this->getEnergyPoints()) << " Energy points" 
+    std::cout << "Name is " << *this
+    << " with " << (this->getHitPoints()) << " Hit points"
+    << ", with " << (this->getEnergyPoints()) << " Energy points"
     << " and with " << (this->getAttackDamage()) << " Attack damage." << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &other)
 {
-    std::cout << "ClapTrap Copy constructor called" << std::endl;
+    //std::cout << "ClapTrap Copy constructor called" << std::endl;
     *this = other;
 }
 
@@ -114,7 +114,7 @@ void    ClapTrap::attack(const std::string &target)
     }
     if (this->getEnergyPoints() == 0)
     {
-        std::cout << *this << " don't have enough energy !" << std::endl;
+        std::cout << *this << " doesn't have enough energy !" << std::endl;
         return ;
     }
     if (target.size() < 1)
@@ -144,7 +144,7 @@ void    ClapTrap::beRepaired(unsigned int amount)
     }
     if (this->getEnergyPoints() == 0)
     {
-        std::cout << *this << " don't have enough energy !" << std::endl;
+        std::cout << *this << " doesn't have enough energy !" << std::endl;
         return ;
     }
     this->setHitPoints(this->getHitPoints() + amount);

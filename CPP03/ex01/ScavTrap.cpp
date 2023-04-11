@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:14:54 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/07 11:07:14 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:43:34 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ScavTrap::attack(const std::string &target)
 	}
 	if (this->getEnergyPoints() == 0)
 	{
-		std::cout << *this << " don't have enough energy !" << std::endl;
+		std::cout << *this << " doesn't have enough energy !" << std::endl;
 		return ;
 	}
 	if (target.size() < 1)

@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:14:36 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/07 11:17:19 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:47:16 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main( void )
 	scav.takeDamage(20);
 	scav.takeDamage(10);
 	scav.setHitPoints(10);
-	std::cout << "Nikita's HitPoints reset to 10 Hit Points" << std::endl;
+	std::cout << scav <<"'s HitPoints reset to 10 Hit Points" << std::endl;
 	scav.takeDamage(5);
 	scav.beRepaired(5);
 	scav.guardGate();
