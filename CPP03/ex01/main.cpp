@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:14:36 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/11 14:47:16 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:20:45 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 int main( void )
 {
-	ScavTrap scav("Nikita");
+	ScavTrap scav("Pierre");
 
-	scav.attack("Francis");
-	scav.attack("Francis");
-	scav.attack("Francis");
-	scav.attack("Francis");
-	scav.attack("Francis");
-	scav.attack("Francis");
-	scav.attack("Francis");
-	scav.attack("Francis");
-	scav.attack("Francis");
-	scav.attack("Francis");
-	scav.attack("Francis");
-	scav.attack("Francis");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
 
 	while(scav.getEnergyPoints() > 0)
-		scav.attack("Maurice");
+		scav.attack("Victim 2");
 
-	scav.attack("Phill");
+	scav.attack("Victim 3");
 
 	scav.setEnergyPoints(10);
-	scav.attack("Phill");
+	scav.attack("Victim 3");
 	scav.takeDamage(30);
 	scav.takeDamage(20);
 	scav.takeDamage(10);
@@ -47,14 +47,14 @@ int main( void )
 
 
 	ScavTrap scav2(scav);
-	scav2.attack("Francis");
+	scav2.attack("Victim 1");
 	scav2.takeDamage(5);
 	scav2.beRepaired(5);
 	scav2.guardGate();
 
-	ClapTrap scav3("Marcel");
+	ClapTrap scav3("Paul");
 	scav3 = scav;
-	scav3.attack("Arthur");
+	scav3.attack("Victim 4");
 	scav3.takeDamage(5);
 	scav3.beRepaired(5);
 

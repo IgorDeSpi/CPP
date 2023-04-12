@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:14:36 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/11 14:48:43 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:19:17 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@ int main( void )
 {
 	FragTrap scav("Pierre");
 
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
 	while(scav.getEnergyPoints() > 0)
-		scav.attack("Victime 2");
-	scav.attack("Victime 3");
+		scav.attack("Victim 2");
+	scav.attack("Victim 3");
 	scav.setEnergyPoints(2);
 	std::cout << scav <<"'s EnergyPoints reset to 2 Energy Points" << std::endl;
 	scav.takeDamage(5);
@@ -45,13 +45,13 @@ int main( void )
 
 
 	FragTrap scav2(scav);
-	scav2.attack("Victime 1");
+	scav2.attack("Victim 1");
 	scav2.takeDamage(5);
 	scav2.beRepaired(5);
 	scav2.highFivesGuys();
 
 	ScavTrap scav3("Paul");
-	scav3.attack("Victime 4");
+	scav3.attack("Victim 4");
 	scav3.takeDamage(5);
 	scav3.beRepaired(5);
 	scav3.guardGate();
@@ -61,7 +61,7 @@ int main( void )
 	// scav4.guardGate();
 	// scav4.highFivesGuys();
 	scav4 = scav;
-	scav4.attack("Victime 4");
+	scav4.attack("Victim 4");
 	scav4.takeDamage(5);
 	scav4.beRepaired(5);
 	// scav4.highFivesGuys();

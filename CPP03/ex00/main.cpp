@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ide-spir <narvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:57:11 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/06 23:25:50 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:21:41 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 int	main(void)
 {
-	ClapTrap clap("Hubert");
+	ClapTrap clap("Pierre");
 
-	clap.attack("Francis");
-	clap.attack("Francis");
-	clap.attack("Francis");
-	clap.attack("Francis");
-	clap.attack("Francis");
-	clap.attack("Francis");
-	clap.attack("Francis");
-	clap.attack("Francis");
-	clap.attack("Francis");
-	clap.attack("Francis");
-	clap.attack("Francis");
-	clap.attack("Francis");
+	clap.attack("Victim");
+	clap.attack("Victim");
+	clap.attack("Victim");
+	clap.attack("Victim");
+	clap.attack("Victim");
+	clap.attack("Victim");
+	clap.attack("Victim");
+	clap.attack("Victim");
+	clap.attack("Victim");
+	clap.attack("Victim");
+	clap.attack("Victim");
+	clap.attack("Victim");
 	clap.setEnergyPoints(10);
 	clap.takeDamage(5);
 	clap.takeDamage(5);
@@ -39,20 +39,20 @@ int	main(void)
 
 	ClapTrap clap1("");
 
-	clap1.attack("Francis");
+	clap1.attack("Victim");
 	clap1.attack("");
-	clap1.attack("Francis");
-	clap1.attack("Francis");
-	clap1.attack("Francis");
-	clap1.attack("Francis");
+	clap1.attack("Victim");
+	clap1.attack("Victim");
+	clap1.attack("Victim");
+	clap1.attack("Victim");
 	clap1.setAttackDamage(10);
-	clap1.attack("Francis");
-	clap1.attack("Francis");
-	clap1.attack("Francis");
-	clap1.attack("Francis");
-	clap1.attack("Francis");
-	clap1.attack("Francis");
-	clap1.attack("Francis");
+	clap1.attack("Victim");
+	clap1.attack("Victim");
+	clap1.attack("Victim");
+	clap1.attack("Victim");
+	clap1.attack("Victim");
+	clap1.attack("Victim");
+	clap1.attack("Victim");
 	clap1.beRepaired(5);
 	clap1.setEnergyPoints(10);
 	clap1.takeDamage(12);
@@ -66,7 +66,7 @@ int	main(void)
 
 	ClapTrap clap2("");
 	clap2 = clap;
-	clap.attack("Francis");
+	clap.attack("Victim");
 
 	return 0;
 }

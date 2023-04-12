@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:14:36 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/12 12:16:44 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:19:17 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@ int main( void )
 {
 	DiamondTrap scav("Pierre");
 
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
-	scav.attack("Victime 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
+	scav.attack("Victim 1");
 
 	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 
 	while(scav.getEnergyPoints() > 0)
-		scav.attack("Victime 2");
+		scav.attack("Victim 2");
 
 	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 
-	scav.attack("Victime 3");
+	scav.attack("Victim 3");
 	scav.setEnergyPoints(10);
 	std::cout << scav <<"'s EnergyPoints reset to 10 Energy Points" << std::endl;
 	scav.takeDamage(5);
@@ -54,13 +54,13 @@ int main( void )
 	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 
 	DiamondTrap scav2(scav);
-	scav.attack("Victime 1");
+	scav.attack("Victim 1");
 	scav.whoAmI();
 	scav.guardGate();
 
 	// std::cout << "###############################################" << std::endl;
 
-	// ScavTrap scav1("Victime 1");
+	// ScavTrap scav1("Victim 1");
 	// scav1.attack("Nikita");
 	// scav1.attack("Nikita");
 	// scav1.attack("Nikita");
@@ -74,8 +74,8 @@ int main( void )
 	// scav1.attack("Nikita");
 	// scav1.attack("Nikita");
 	// while(scav1.getEnergyPoints() > 0)
-	// 	scav1.attack("Victime 2");
-	// scav1.attack("Victime 3");
+	// 	scav1.attack("Victim 2");
+	// scav1.attack("Victim 3");
 	// scav1.setEnergyPoints(10);
 	// scav1.takeDamage(5);
 	// scav1.takeDamage(5);
@@ -92,7 +92,7 @@ int main( void )
 
 	// FragTrap scav3;
 	// scav3 = scav;
-	// scav3.attack("Victime 1");
+	// scav3.attack("Victim 1");
 	// scav3.takeDamage(5);
 	// scav3.beRepaired(5);
 	// scav3.highFivesGuys();
