@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:57:01 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/11 14:43:16 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:14:37 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ ClapTrap::ClapTrap(std::string const &name) : _name(name), _hitPoints(10), _ener
     std::cout << "ClapTrap Overload Default constructor called" << std::endl;
     if (name.size() < 1)
         this->setName("Undefined");
-    std::cout << "Name is " << *this
-    << " with " << (this->getHitPoints()) << " Hit points"
-    << ", with " << (this->getEnergyPoints()) << " Energy points"
-    << " and with " << (this->getAttackDamage()) << " Attack damage." << std::endl;
+    std::cout << "Name is " << *this << std::endl;
+    std::cout << "with " << (this->getHitPoints()) << " Hit points" << std::endl;
+	std::cout << "with " << (this->getEnergyPoints()) << " Energy points" << std::endl;
+	std::cout << "and with " << (this->getAttackDamage()) << " Attack damage" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &other)
@@ -148,6 +148,6 @@ void    ClapTrap::beRepaired(unsigned int amount)
         return ;
     }
     this->setHitPoints(this->getHitPoints() + amount);
-    std::cout << *this << " be repared to " << amount << " hit points and he has actually " << this->getHitPoints() << " hit points !" << std::endl;
+    std::cout << *this << " be repaired to " << amount << " hit points and he has actually " << this->getHitPoints() << " hit points !" << std::endl;
     this->setEnergyPoints(this->getEnergyPoints() - 1);
 }

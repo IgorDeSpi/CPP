@@ -6,13 +6,13 @@
 #    By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 14:57:07 by ide-spir          #+#    #+#              #
-#    Updated: 2023/04/06 14:59:30 by ide-spir         ###   ########.fr        #
+#    Updated: 2023/04/12 11:55:56 by ide-spir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -----------------------------------------VARS-------------------------------
 
-NAME = claptrap
+NAME = ClapTrap
 
 SRCS =	main.cpp \
 		ClapTrap.cpp
@@ -23,9 +23,9 @@ COMPILE = clang++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-EXE_NAME = -o claptrap
+EXE_NAME = -o ClapTrap
 
-EXEC = claptrap
+EXEC = ClapTrap
 
 # -------------------------------------RULES-----------------------------------
 

@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:14:54 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/11 14:43:34 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:14:37 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,27 @@ void	ScavTrap::guardGate()
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
-	std::cout << "Name is " << *this;
+	std::cout << "Name is " << *this << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
 	this->_guardStatus = 0;
-	std::cout << " with " << (this->getHitPoints()) << " Hit points"
-	<< ", with " << (this->getEnergyPoints()) << " Energy points"
-	<< " and with " << this->getAttackDamage() << " Attack damage" << std::endl;
+    std::cout << "with " << (this->getHitPoints()) << " Hit points" << std::endl;
+	std::cout << "with " << (this->getEnergyPoints()) << " Energy points" << std::endl;
+	std::cout << "and with " << (this->getAttackDamage()) << " Attack damage" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string const &name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap Overload Default constructor called" << std::endl;
-	std::cout << "Name is " << *this;
+	std::cout << "Name is " << *this << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
 	this->_guardStatus = 0;
-	std::cout << " with " << (this->getHitPoints()) << " Hit points"
-	<< ", with " << (this->getEnergyPoints()) << " Energy points"
-	<< " and with " << this->getAttackDamage() << " Attack damage" << std::endl;
+    std::cout << "with " << (this->getHitPoints()) << " Hit points" << std::endl;
+	std::cout << "with " << (this->getEnergyPoints()) << " Energy points" << std::endl;
+	std::cout << "and with " << (this->getAttackDamage()) << " Attack damage" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &obj)
