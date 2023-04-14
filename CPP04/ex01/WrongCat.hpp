@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 12:28:48 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/13 10:14:12 by ide-spir         ###   ########.fr       */
+/*   Created: 2023/04/13 10:12:59 by ide-spir          #+#    #+#             */
+/*   Updated: 2023/04/13 10:29:32 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include <iostream>
+# include "WrongAnimal.hpp"
 
-class Animal
+class WrongCat : public WrongAnimal
 {
 	private:
 
-	protected:
-		std::string	_type;
-
 	public:
-		Animal();
-		Animal(std::string const &type);
-		Animal(Animal const &obj);
-		virtual ~Animal();
-		Animal &operator=(Animal const &obj);
+		WrongCat();
+		WrongCat(WrongCat const &obj);
+		virtual ~WrongCat();
+		WrongCat &operator=(WrongCat const &obj);
 
-		void	setType(std::string const &type);
-
-		const std::string	&getType() const;
-
-		virtual void	makeSound(void) const;
+		void	makeSound(void) const;
 };
 
 #endif

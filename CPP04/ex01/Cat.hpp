@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 12:28:48 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/13 10:14:12 by ide-spir         ###   ########.fr       */
+/*   Created: 2023/04/13 10:11:06 by ide-spir          #+#    #+#             */
+/*   Updated: 2023/04/13 10:28:20 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
+# include "Dog.hpp"
 
-class Animal
+class Cat : public Animal
 {
 	private:
-
-	protected:
-		std::string	_type;
+		Brain	*_brain;
 
 	public:
-		Animal();
-		Animal(std::string const &type);
-		Animal(Animal const &obj);
-		virtual ~Animal();
-		Animal &operator=(Animal const &obj);
+		Cat();
+		Cat(Cat const &obj);
+		virtual	~Cat();
+		Cat	&operator=(Cat const &obj);
 
-		void	setType(std::string const &type);
+		void	makeSound(void) const;
 
-		const std::string	&getType() const;
+		Brain	*getBrain() const;
 
-		virtual void	makeSound(void) const;
+		void	setIdea(std::string const &ideas, int const &idea);
+		void	printIdea(int const &idea) const;
 };
 
 #endif

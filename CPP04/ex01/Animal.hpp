@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 12:28:48 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/13 10:14:12 by ide-spir         ###   ########.fr       */
+/*   Created: 2023/04/13 10:12:39 by ide-spir          #+#    #+#             */
+/*   Updated: 2023/04/13 10:14:32 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
-# include <iostream>
+# include "Brain.hpp"
 
 class Animal
 {
