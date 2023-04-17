@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:14:41 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/07 10:29:08 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/17 09:37:01 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class ClapTrap
 {
     private:
-    
+
     protected:
         std::string _name;
         int         _hitPoints;

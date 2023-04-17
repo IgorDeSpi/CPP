@@ -6,7 +6,7 @@
 #    By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 15:15:03 by ide-spir          #+#    #+#              #
-#    Updated: 2023/04/12 11:55:36 by ide-spir         ###   ########.fr        #
+#    Updated: 2023/04/17 09:37:08 by ide-spir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ COMPILE = clang++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 EXE_NAME = -o ScavTrap
-
+˙˙
 EXEC = ScavTrap
 
 # -------------------------------------RULES-----------------------------------
