@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:17:07 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/17 09:38:35 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/17 13:24:28 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ DiamondTrap::DiamondTrap() // : ClapTrap(), FragTrap(), ScavTrap()
 	std::cout << "DiamondTrap Default constructor called" << std::endl;
 	this->ClapTrap::_name += "_clap_name";
 	std::cout << "Name is " << *this << std::endl;
-	this->_hitPoints = FragTrap().getHitPoints();
-	this->_attackDamage = FragTrap().getAttackDamage();
-	this->_energyPoints = ScavTrap().getEnergyPoints();
+	this->_hitPoints = FragTrap::getHitPoints();
+	this->_attackDamage = FragTrap::getAttackDamage();
+	this->_energyPoints = 50;
 	std::cout << "with " << (this->getHitPoints()) << " Hit points" << std::endl;
 	std::cout << "with " << (this->getEnergyPoints()) << " Energy points" << std::endl;
 	std::cout << "and with " << (this->getAttackDamage()) << " Attack damage" << std::endl;
@@ -31,9 +31,9 @@ DiamondTrap::DiamondTrap(std::string const &name) // : ClapTrap(), FragTrap(), S
 	this->ClapTrap::_name += "_clap_name";
 	this->DiamondTrap::_name = name;
 	std::cout << "Name is " << *this << std::endl;
-	this->_hitPoints = FragTrap().getHitPoints();
-	this->_attackDamage = FragTrap().getAttackDamage();
-	this->_energyPoints = ScavTrap().getEnergyPoints();
+	this->_hitPoints = FragTrap::getHitPoints();
+	this->_attackDamage = FragTrap::getAttackDamage();
+	this->_energyPoints = 50;
 	std::cout << "with " << (this->getHitPoints()) << " Hit points" << std::endl;
 	std::cout << "with " << (this->getEnergyPoints()) << " Energy points" << std::endl;
 	std::cout << "and with " << (this->getAttackDamage()) << " Attack damage" << std::endl;
