@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 11:00:45 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/04/14 15:03:33 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/04/21 10:12:45 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ int	main()
 
 	Cat test;
 	test.printIdea(0);
-	test.setIdea("Ready, Everyone? Now, Think Goose!", 0);
+	test.setIdea("< Ready, Everyone? Now, Think Goose! >", 0);
 	test.makeSound();
 	test.printIdea(0);
 	Cat test2;
 	test2 = test;
 	test2.makeSound();
 	test2.printIdea(0);
-	test2.setIdea("You Really Did Quite Well For A Beginner.", 0);
+	test2.setIdea("< You Really Did Quite Well For A Beginner. >", 0);
 	test2.printIdea(0);
 	test.printIdea(0);
 	Cat Z(test);
