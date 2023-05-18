@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:42:49 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/05/12 11:56:48 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:36:16 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Bureaucrat
 
 		const std::string	getName(void) const;
 		int	getGrade(void) const;
-		int	testGrade(void) const;
+		int	testGrade(int grade) const;
 
 		void	gradeIncrement();
 		void	gradeDecrement();
