@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:35:56 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/05/22 17:10:12 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/05/26 10:48:04 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,19 +144,19 @@ void	AForm::beExec(Bureaucrat &bureaucrat)
 	}
 	catch (Bureaucrat::GradeTooLowException &e)
 	{
-		std::cerr << bureaucrat.getName() << " couldn’t execut " << this->getName() << " because ";
+		std::cerr << bureaucrat.getName() << " couldn’t execute " << this->getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
 	catch (GradeUnavailableException &e)
 	{
-		std::cerr << bureaucrat.getName() << " couldn’t execut " << this->getName() << " because ";
+		std::cerr << bureaucrat.getName() << " couldn’t execute " << this->getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
 	catch (NoSignStatusException &e)
 	{
-		std::cerr << bureaucrat.getName() << " couldn’t execut " << this->getName() << " because ";
+		std::cerr << bureaucrat.getName() << " couldn’t execute " << this->getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
