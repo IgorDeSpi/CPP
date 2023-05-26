@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:21:49 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/05/18 17:34:34 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:15:38 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class Bureaucrat;
 class AForm
 {
 	private:
-		std::string const	_name;
-		bool	_signed;
-		unsigned int const	_signGrade;
-		unsigned int const	_execGrade;
+		std::string const			_name;
+		bool						_signed;
+		unsigned int const			_signGrade;
+		unsigned int const			_execGrade;
 
 	public:
 		AForm();
@@ -33,43 +33,39 @@ class AForm
 		AForm &operator=(AForm const &obj);
 
 		std::string	getName() const;
-		int	getSignGrade() const;
-		int	getExecGrade() const;
-		bool	getSigned() const;
+		int			getSignGrade() const;
+		int			getExecGrade() const;
+		bool		getSigned() const;
 
 		void	beSigned(Bureaucrat &bureaucrat);
 		void	beExec(Bureaucrat &bureaucrat);
 
-		int	testGrade(unsigned int grade) const;
+		int		testGrade(unsigned int grade) const;
 		void	formChecker(Bureaucrat &bureaucrat);
-		void	execChecker(const Bureaucrat &obj) const;
+		void	execChecker(const Bureaucrat& obj) const;
 
-		virtual void	execute(Bureaucrat const &executor) const = 0;
+		virtual void		execute(Bureaucrat const &executor) const = 0;
 
 	class GradeTooHighException : public std::exception
 	{
 		public:
 			const char *what() const throw();
 	};
-
 	class GradeTooLowException : public std::exception
 	{
 		public:
 			const char *what() const throw();
 	};
-
 	class GradeUnavailableException : public std::exception
 	{
 		public:
 			const char *what() const throw();
 	};
-
 	class SignStatusException : public std::exception
 	{
 		public:
 			const char *what() const throw();
 	};
-
 	class NoSignStatusException : public std::exception
 	{
 		public:

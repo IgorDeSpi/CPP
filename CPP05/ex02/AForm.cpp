@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:35:56 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/05/18 18:09:03 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:10:12 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 AForm::AForm() : _name("Undefined"), _signGrade(160), _execGrade(160)
 {
 	this->_signed = false;
-	std::cout << "AForm Default Contstructor called" << std::endl;
+	std::cout << "AForm Default Constructor called" << std::endl;
 }
 
 AForm::AForm(std::string const name, unsigned int const signGrade, unsigned int const execGrade) : _name(name), _signGrade(testGrade(signGrade)), _execGrade(testGrade(execGrade))
@@ -29,54 +29,57 @@ AForm::AForm(AForm const &obj) : _name(obj.getName()), _signGrade(obj.getSignGra
 	this->_signed = false;
 	*this = obj;
 }
-
 AForm::~AForm()
 {
 	std::cout << "AForm Destructor called" << std::endl;
 }
-
-AForm	&AForm::operator=(AForm const &obj)
+AForm &AForm::operator=(AForm const &obj)
 {
 	std::cout << "AForm Copy assignment operator called" << std::endl;
 	(void)obj;
 	return *this;
 }
 
-std::string	AForm::getName() const
+std::string AForm::getName() const
 {
 	return (this->_name);
 }
 
-int	AForm::getSignGrade() const
+int AForm::getSignGrade() const
 {
 	return (this->_signGrade);
 }
 
-int	AForm::getExecGrade() const
+int AForm::getExecGrade() const
 {
 	return (this->_execGrade);
 }
 
-bool	AForm::getSigned() const
+bool AForm::getSigned() const
 {
 	return (this->_signed);
 }
 
 int	AForm::testGrade(unsigned int grade) const
 {
+
 	try
 	{
-		if(grade < 1)
-			throw(GradeTooHighException());
+		if (grade < 1)
+		{
+			throw (GradeTooHighException());
+		}
 		if (grade > 150)
-			throw(GradeTooLowException());
+		{
+			throw (GradeTooLowException());
+		}
 	}
-	catch(GradeTooHighException &e)
+	catch (GradeTooHighException &e)
 	{
 		std::cerr << e.what() << std::endl;
 		return (0);
 	}
-	catch(GradeTooLowException &e)
+	catch (GradeTooLowException &e)
 	{
 		std::cerr << e.what() << std::endl;
 		return (0);
@@ -87,32 +90,50 @@ int	AForm::testGrade(unsigned int grade) const
 void	AForm::formChecker(Bureaucrat &bureaucrat)
 {
 	if (this->getSigned() == true)
-		throw(AForm::SignStatusException());
+	{
+		throw (AForm::SignStatusException());
+	}
 	if (this->getSignGrade() == 0 || this->getExecGrade() == 0)
-		throw(GradeUnavailableException());
+	{
+		throw (GradeUnavailableException());
+	}
 	if (bureaucrat.getGrade() > this->getSignGrade())
+	{
 		throw (Bureaucrat::GradeTooLowException());
+	}
 }
 
 void	AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (this->getSigned() == true)
-		throw(SignStatusException());
+	{
+		throw (SignStatusException());
+	}
 	if (this->getSignGrade() == 0 || this->getExecGrade() == 0)
-		throw(GradeUnavailableException());
+	{
+		throw (GradeUnavailableException());
+	}
 	if (bureaucrat.getGrade() > this->getSignGrade())
-		throw(Bureaucrat::GradeTooLowException());
+	{
+		throw (Bureaucrat::GradeTooLowException());
+	}
 	this->_signed = true;
 }
 
-void	AForm::execChecker(const Bureaucrat &obj) const
+void AForm::execChecker(const Bureaucrat& obj) const
 {
 	if (this->getSigned() == false)
-		throw(NoSignStatusException());
+	{
+		throw (NoSignStatusException());
+	}
 	if (this->getSignGrade() == 0 || this->getExecGrade() == 0)
-		throw(GradeUnavailableException());
+	{
+		throw (GradeUnavailableException());
+	}
 	else if (obj.getGrade() > this->getExecGrade())
-		throw(Bureaucrat::GradeTooLowException());
+	{
+		throw (Bureaucrat::GradeTooLowException());
+	}
 }
 
 void	AForm::beExec(Bureaucrat &bureaucrat)
@@ -121,55 +142,55 @@ void	AForm::beExec(Bureaucrat &bureaucrat)
 	{
 		this->execChecker(bureaucrat);
 	}
-	catch(Bureaucrat::GradeTooLowException &e)
+	catch (Bureaucrat::GradeTooLowException &e)
 	{
-		std::cerr << bureaucrat.getName() << " couldn't execute " << this->getName() << " because ";
+		std::cerr << bureaucrat.getName() << " couldn’t execut " << this->getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
-	catch(GradeUnavailableException &e)
+	catch (GradeUnavailableException &e)
 	{
-		std::cerr << bureaucrat.getName() << " couldn't execute " << this->getName() << " because ";
+		std::cerr << bureaucrat.getName() << " couldn’t execut " << this->getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
-	catch(NoSignStatusException &e)
+	catch (NoSignStatusException &e)
 	{
-		std::cerr << bureaucrat.getName() << " couldn't execute " << this->getName() << " because ";
+		std::cerr << bureaucrat.getName() << " couldn’t execut " << this->getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
 }
 
-const char	*AForm::GradeTooHighException::what() const throw()
+const char *AForm::GradeTooHighException::what() const throw()
 {
-	return ("Form grade is not correct ! It is too high !");
+	return ("Form grade is not correct ! He is too high !");
 }
 
-const char	*AForm::GradeTooLowException::what() const throw()
+const char *AForm::GradeTooLowException::what() const throw()
 {
-	return ("Form grade is not correct ! It is too low !");
+	return ("Form grade is not correct ! He is too low !");
 }
 
-const char	*AForm::GradeUnavailableException::what() const throw()
+const char *AForm::GradeUnavailableException::what() const throw()
 {
-	return ("Form grade is unavailble and it can't be used or signed !");
+	return ("Form grade is unvailable and he can't be used or signed!");
 }
 
-const char	*AForm::SignStatusException::what() const throw()
+const char *AForm::SignStatusException::what() const throw()
 {
-	return ("Form is already signed ! Don't need another signature !");
+	return ("Form is already Sign ! Don't need another Sign !");
 }
 
-const char	*AForm::NoSignStatusException::what() const throw()
+const char *AForm::NoSignStatusException::what() const throw()
 {
-	return ("Form is not signed ! Can't use Form if it is not signed !");
+	return ("Form is not sign ! Can't use Form if he's not Sign !");
 }
 
-std::ostream	&operator<<(std::ostream &o, AForm const &rhs)
+std::ostream &operator<<(std::ostream &o,AForm const &rhs)
 {
-	o << "Form name " << rhs.getName() << " can be signed with grade " << rhs.getSignGrade();
-	o << ", executed with grade " << rhs.getExecGrade() << " and signed status is ";
+	o << "Form name " << rhs.getName() << " can be sign with grade " << rhs.getSignGrade();
+	o << ", execute with grade " << rhs.getExecGrade() << " and sign status is ";
 	if (rhs.getSigned() == false)
 		o << "unsigned!";
 	else

@@ -6,7 +6,7 @@
 #    By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 18:10:35 by ide-spir          #+#    #+#              #
-#    Updated: 2023/05/18 18:11:44 by ide-spir         ###   ########.fr        #
+#    Updated: 2023/05/26 10:44:37 by ide-spir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ $(NAME): $(OBJS)
 	@$(COMPILE) $(FLAGS) $(OBJS) $(EXE_NAME)
 
 clean:
-	@rm -rf $(OBJS)
+	@rm -rf $(OBJS) "Extra Low Form_shrubbery"
 
 fclean: clean
 	@rm -rf $(EXEC)

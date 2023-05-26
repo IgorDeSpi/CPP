@@ -6,13 +6,13 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:12:20 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/05/18 17:35:27 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:16:56 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Unknown Name"), _grade(150)
+Bureaucrat::Bureaucrat() : _name("Unknow Name"), _grade(150)
 {
 	std::cout << "Bureaucrat Default Constructor called" << std::endl;
 }
@@ -30,16 +30,20 @@ int	Bureaucrat::testGrade(int grade) const
 	try
 	{
 		if (grade < 1)
+		{
 			throw (GradeTooHighException());
+		}
 		if (grade > 150)
+		{
 			throw (GradeTooLowException());
+		}
 	}
-	catch(GradeTooHighException &e)
+	catch (GradeTooHighException &e)
 	{
 		std::cerr << e.what() << std::endl;
 		return (this->getGrade() == 1) ? 1 : 150;
 	}
-	catch(GradeTooLowException &e)
+	catch (GradeTooLowException &e)
 	{
 		std::cerr << e.what() << std::endl;
 		return (150);
@@ -51,13 +55,11 @@ Bureaucrat::Bureaucrat(Bureaucrat const &obj) : _name(obj.getName())
 {
 	*this = obj;
 }
-
 Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Bureaucrat Destructor called" << std::endl;
 }
-
-Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &obj)
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &obj)
 {
 	std::cout << "Bureaucrat Copy assignment operator called" << std::endl;
 	this->_grade = obj.getGrade();
@@ -74,26 +76,26 @@ const std::string	Bureaucrat::getName(void) const
 	return (this->_name);
 }
 
-void	Bureaucrat::gradeIncrement()
+void Bureaucrat::gradeIncrement()
 {
 	this->_grade = testGrade(this->_grade - 1);
 	return ;
 }
 
-void	Bureaucrat::gradeDecrement()
+void Bureaucrat::gradeDecrement()
 {
 	this->_grade = testGrade(this->_grade + 1);
 	return ;
 }
 
-const char	*Bureaucrat::GradeTooHighException::what() const throw()
+const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Bureaucrat grade is not correct ! It is too high !");
+	return ("Bureaucrat grade is not correct ! He is too high !");
 }
 
-const char	*Bureaucrat::GradeTooLowException::what() const throw()
+const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Bureaucrat grade is not correct ! It is too low !");
+	return ("Bureaucrat grade is not correct ! He is too low !");
 }
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs)
@@ -108,25 +110,25 @@ void	Bureaucrat::signForm(AForm &AForm)
 	{
 		AForm.beSigned(*this);
 	}
-	catch(GradeTooLowException &e)
+	catch (GradeTooLowException &e)
 	{
-		std::cerr << this->getName() << " couldn't sign " << AForm.getName() << " because ";
+		std::cerr << this->getName() << " couldn’t sign " << AForm.getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
-	catch(AForm::GradeUnavailableException &e)
+	catch (AForm::GradeUnavailableException &e)
 	{
-		std::cerr << this->getName() << " couldn't sign " << AForm.getName() << " because ";
+		std::cerr << this->getName() << " couldn’t sign " << AForm.getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
-	catch(AForm::SignStatusException &e)
+	catch (AForm::SignStatusException &e)
 	{
-		std::cerr << this->getName() << " couldn't sign " << AForm.getName() << " because ";
+		std::cerr << this->getName() << " couldn’t sign " << AForm.getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
-	std::cout << this->getName() << " signed " << AForm.getName() << "." << std::endl;
+	std::cout << this->getName() << " signed " << AForm.getName() << "." <<std::endl;
 	return ;
 }
 
@@ -134,27 +136,27 @@ void	Bureaucrat::execForm(AForm &AForm)
 {
 	try
 	{
-		AForm.formChecker(*this);
+		AForm.execChecker(*this);
 	}
-	catch(GradeTooLowException &e)
+	catch (GradeTooLowException &e)
 	{
-		std::cerr << this->getName() << " couldn't execute " << AForm.getName() << " because ";
+		std::cerr << this->getName() << " couldn’t execut " << AForm.getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
-	catch(AForm::GradeUnavailableException &e)
+	catch (AForm::GradeUnavailableException &e)
 	{
-		std::cerr << this->getName() << " couldn't execute " << AForm.getName() << " because ";
+		std::cerr << this->getName() << " couldn’t execut " << AForm.getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
-	catch(AForm::NoSignStatusException &e)
+	catch (AForm::NoSignStatusException &e)
 	{
-		std::cerr << this->getName() << " couldn't execute " << AForm.getName() << " because ";
+		std::cerr << this->getName() << " couldn’t execut " << AForm.getName() << " because ";
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
 	AForm.execute(*this);
-	std::cout << this->getName() << " executed " << AForm.getName() << "." << std::endl;
+	std::cout << this->getName() << " executed " << AForm.getName() << "." <<std::endl;
 	return ;
 }
