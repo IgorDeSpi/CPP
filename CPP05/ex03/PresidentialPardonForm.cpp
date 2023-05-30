@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:09:15 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/05/22 16:21:48 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:55:21 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
-	std::cout << this->getTarget() << "has been pardoned by President Zaphod Beeblebrox.." << std::endl;
+	std::cout << this->getTarget() << " has been pardoned by President Zaphod Beeblebrox.." << std::endl;
 }

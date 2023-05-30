@@ -6,13 +6,13 @@
 #    By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 18:10:35 by ide-spir          #+#    #+#              #
-#    Updated: 2023/05/26 10:57:16 by ide-spir         ###   ########.fr        #
+#    Updated: 2023/05/30 11:32:49 by ide-spir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -----------------------------------------VARS-------------------------------
 
-NAME = ex02
+NAME = ex03
 
 SRCS =	main.cpp \
 		Bureaucrat.cpp \
@@ -28,9 +28,9 @@ COMPILE = clang++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-EXE_NAME = -o ex02
+EXE_NAME = -o ex03
 
-EXEC = ex02
+EXEC = ex03
 
 # -------------------------------------RULES-----------------------------------
 
