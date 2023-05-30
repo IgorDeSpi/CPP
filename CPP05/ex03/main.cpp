@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:29:43 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/05/30 11:57:25 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/05/30 13:27:00 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 {
 Intern RandomIntern;
 AForm *ppb;
-ppb = RandomIntern.makeForm("presidential pardon", "The INTERN");
+ppb = RandomIntern.makeForm("robotomy request", "Bender");
 
 if (!ppb)
 	return (0);
