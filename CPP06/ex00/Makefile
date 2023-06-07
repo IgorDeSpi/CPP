@@ -6,16 +6,16 @@
 #    By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/30 13:38:09 by ide-spir          #+#    #+#              #
-#    Updated: 2023/05/31 10:25:35 by ide-spir         ###   ########.fr        #
+#    Updated: 2023/06/07 15:48:34 by ide-spir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -----------------------------------------VARS-------------------------------
 
-NAME = ex00
+NAME = convert
 
 SRCS =	main.cpp \
-		ScaleConversion.cpp
+		ScalarConversion.cpp
 
 
 OBJS = $(SRCS:.cpp=.o)
@@ -24,9 +24,9 @@ COMPILE = clang++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-EXE_NAME = -o ex00
+EXE_NAME = -o convert
 
-EXEC = ex00
+EXEC = convert
 
 # -------------------------------------RULES-----------------------------------
 

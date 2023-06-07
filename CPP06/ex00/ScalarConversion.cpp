@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 13:39:16 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/05/31 14:39:23 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:41:06 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,132 @@ void	ScalarConversion::convert(std::string const &str)
 {
 	enum	type {CHAR, INT, FLOAT, DOUBLE};
 	bool	(*ftab[5])(std::string str) = {isChar, isInt, isFloat, isDouble, NULL};
+	unsigned long int	n = 0;
+	char	_char = 0;
+	int		_int = 0;
+	float	_float = 0.0f;
+	double	_double = 0.0;
+
+	for (; n < 5; n++)
+	{
+		if (n != 4 && ftab[n](str) == true)
+			break ;
+	}
+	switch (n)
+	{
+		case CHAR :
+			_char = str[0];
+			displayChar(_char);
+			break;
+		case INT :
+			_int = atoi(str.c_str());
+			displayInt(_int);
+			break;
+		case FLOAT :
+			_float = std::atof(str.c_str());
+			displayFloat(_float, str);
+			break;
+		case DOUBLE :
+			_double = std::strtod(str.c_str(), NULL);
+			displayDouble(_double, str);
+			break;
+		default :
+			std::cout << "char: impossible" << std::endl;
+			std::cout << "int: impossible" << std::endl;
+			std::cout << "float: impossible" << std::endl;
+			std::cout << "double: impossible" << std::endl;
+	}
+	return ;
+}
+
+void	ScalarConversion::displayChar(char _char)
+{
+	int	_int = static_cast<int>(_char);
+	float	_float = static_cast<float>(_char);
+	double	_double = static_cast<double>(_char);
+
+	if (_char == 32 || std::isgraph(_char))
+		std::cout << "char: '" << _char << "'" << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;
+	std::cout << "int: " << _int << std::endl;
+	std::cout << "float: " << _float << ".0f" << std::endl;
+	std::cout << "double: " << _double << ".0" << std::endl;
+}
+
+void	ScalarConversion::displayInt(int _int)
+{
+	char	_char = static_cast<char>(_int);
+	float	_float = static_cast<float>(_int);
+	double	_double = static_cast<double>(_int);
+
+	if (_char == 32 || std::isgraph(_char))
+		std::cout << "char: '" << _char << "'" << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;
+	std::cout << "int: " << _int << std::endl;
+	std::cout << "float: " << _float << ".0f" << std::endl;
+	std::cout << "double: " << _double << ".0" << std::endl;
+}
+
+void	ScalarConversion::displayFloat(float _float, std::string str)
+{
+	char	_char = static_cast<char>(_float);
+	int	_int = static_cast<int>(_float);
+	double	_double = static_cast<double>(_float);
+
+	if (_char == 32 || std::isgraph(_char))
+		std::cout << "char: '" << _char << "'" << std::endl;
+	else if (str == "-inff" || str == "+inff" || str == "nanf")
+		std::cout << "char: impossible" << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;
+	if (str == "-inff" || str == "+inff" || str == "nanf")
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << _int << std::endl;
+	int	i = 2;
+	while (str[str.size() - i] != '.')
+	{
+		if (str[str.size() - i] != '.' && str[str.size() - i] != '0')
+		{
+			std::cout << "float: " << _float << "f" << std::endl;
+			std::cout << "double: " << _double << std::endl;
+			return;
+		}
+		i++;
+	}
+	std::cout << "float: " << _float << ".0f" << std::endl;
+	std::cout << "double: " << _double << ".0" << std::endl;
+}
+
+void	ScalarConversion::displayDouble(double _double, std::string str)
+{
+	char	_char = static_cast<char>(_double);
+	float	_float = static_cast<float>(_double);
+	int		_int = static_cast<int>(_double);
+
+	if (_char == 32 || std::isgraph(_char))
+		std::cout << "char: '" << _char << "'" << std::endl;
+	else if (str == "-inf" || str == "+inf" || str == "nan")
+		std::cout << "char: impossible" << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;
+	if (str == "-inf" || str == "+inf" || str == "nan")
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << _int << std::endl;
+	int i = 1;
+	while (str[str.size() - i] != '.')
+	{
+		if (str[str.size() - i] != '.' && str[str.size() - i] != '0')
+		{
+			std::cout << "float: " << _float << "f" << std::endl;
+			std::cout << "double: " << _double << std::endl;
+			return;
+		}
+		i++;
+	}
+	std::cout << "float: " << _float << ".0f" << std::endl;
+	std::cout << "double: " << _double << ".0" << std::endl;
 }
