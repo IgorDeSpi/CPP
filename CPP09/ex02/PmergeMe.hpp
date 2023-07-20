@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 15:14:30 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/07/18 16:24:00 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/07/20 11:37:26 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ T	&orderPairs(T &container) // we assume that container size is even
 	if (size > 2) // division of container for the merge sort
 	{
 		size_t	split = (size / 2);
-		if (split % == 1)
+		if (split % 2 == 1)
 			--split;
 
 		//Split into 2 T
