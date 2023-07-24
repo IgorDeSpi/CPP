@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:58:51 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/05/12 11:29:52 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/07/24 18:13:38 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,12 @@ void	Bureaucrat::gradeDecrement()
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Bureaucrat grade is not correct ! He can't be higher to 1 !");
+	return ("Bureaucrat grade is not correct ! It can't be higher to 1 !");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Bureaucrat grade is not correct ! He can't be lower to 150 !");
+	return ("Bureaucrat grade is not correct ! It can't be lower to 150 !");
 }
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs)
