@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 15:05:17 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/06/11 12:38:49 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/08/01 14:46:36 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,13 @@ int	main()
 	{
 		try
 		{
-			Array<int> tint(1);
-			tint[1] = 23;
+			Array<int> tint(4);
+			tint[0] = 1;
+			tint[1] = 2;
+			tint[2] = 3;
+			tint[3] = 4;
+			const Array<int> test(tint);
+			std::cout << test << std::endl;
 		}
 		catch(const std::exception& e)
 		{

@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 15:05:14 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/06/10 16:13:15 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/08/01 14:44:54 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,14 @@ class	Array
 		Array(Array const &obj);
 		~Array();
 		Array	&operator=(Array const &obj);
-		T	&operator[](unsigned int idx);
+		T	&operator[](unsigned int idx) const;
 		unsigned int	size() const;
+		void		display(std::ostream& stream) const;
 };
+
+
+template<typename T>
+std::ostream&	operator<<(std::ostream& stream, Array<T>const& cl);
 
 # include "Array.tpp"
 

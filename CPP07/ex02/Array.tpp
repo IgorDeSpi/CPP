@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:53:36 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/06/11 12:05:02 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/08/01 14:49:42 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,28 @@ Array<T> &Array<T>::Array::operator=(Array<T> const &obj)
 }
 
 template<typename T>
-T &Array<T>::Array::operator[](unsigned int idx)
+T &Array<T>::Array::operator[](unsigned int idx) const
 {
 	if (idx < 0 || this->size() <= idx)
 		throw std::out_of_range("Index array value unavailable !");
 	return (this->_array[idx]);
+}
+
+template <typename T>
+void		Array<T>::display(std::ostream& stream) const
+{
+	unsigned int i;
+	if (_size == 0)
+		return;
+	for (i = 0; i < _size - 1; i++)
+		stream << _array[i] << " - ";
+	if (i == _size - 1)
+		stream << _array[i];
+}
+
+template <class T>
+std::ostream&	operator<<(std::ostream& stream, Array<T>const& rhs)
+{
+	rhs.display(stream);
+	return (stream);
 }
