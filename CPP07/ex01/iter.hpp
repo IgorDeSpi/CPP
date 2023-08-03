@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:54:12 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/06/10 14:53:43 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/08/03 15:15:13 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 
 template<class T>
 void	iter(T *array, int arraySize, void (*f)(T&))
+{
+	for(int i = 0; i < arraySize; ++i)
+	{
+		T	&element = array[i];
+		f(element);
+	}
+}
+
+template<class T>
+void	iter(T *array, int arraySize, void (*f)(const T&))
 {
 	for(int i = 0; i < arraySize; ++i)
 	{

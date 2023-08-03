@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:34:22 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/06/10 14:54:26 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/08/03 15:15:33 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main()
 	}
 	std::cout << std::endl;
 
-	iter(intArray, intArraySize, incrementer);
+	iter(intArray, intArraySize, incrementer<int>);
 	std::cout << "Integer array after using the iter function with incrementer :" << std::endl;
 	for (int i = 0; i < intArraySize; ++i)
 	{
@@ -38,12 +38,12 @@ int	main()
 	}
 	std::cout << std::endl;
 
-	iter(intArray, intArraySize, print);
+	iter(intArray, intArraySize, print<int>);
 
 	float	floatArray[] = {1.54f, 2.23f, 3.67f, 8.91f};
 	int		floatArraySize = sizeof(floatArray) / sizeof(float);
 
-	iter(floatArray, floatArraySize, print);
+	iter(floatArray, floatArraySize, print<float>);
 
 	return (0);
 }
