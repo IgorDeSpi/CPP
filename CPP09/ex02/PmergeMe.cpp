@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 14:46:42 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/08/10 10:10:06 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/08/11 07:53:36 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,37 +87,39 @@
 
 #include "PmergeMe.hpp"
 
-const char *InvalidValueError::what(void) const throw() {
-    return ("Invalid Value Input");
+const char *InvalidValueError::what(void) const throw()
+{
+	return ("Invalid Value Input");
 }
 
-double elapsed(struct timeval	begin, struct timeval	end) {
+double elapsed(struct timeval	begin, struct timeval	end)
+{
 	long seconds = end.tv_sec - begin.tv_sec;
 	long microseconds = end.tv_usec - begin.tv_usec;
-    double elapsed = seconds*1e6 + microseconds;
+	double elapsed = seconds*1e6 + microseconds;
 	return (elapsed);
 }
 
-void parseInput(char **av, std::vector<int> &vec, std::deque<int> &deq) {
-    for (unsigned int i = 1; av[i]; i++){
+void parseInput(char **av, std::vector<int> &vec, std::deque<int> &deq)
+{
+	for (unsigned int i = 1; av[i]; i++)
+	{
+		int j = 0;
+		while (av[i][j])
+		{
+			if (!isdigit(av[i][j]))
+				throw InvalidValueError();
+			j++;
+		}
 
-        int j = 0;
-        while (av[i][j]) {
-            if (!isdigit(av[i][j])) {
-                throw InvalidValueError();
-            }
-            j++;
-        }
+		std::stringstream ss(av[i]);
+		int val;
 
-        std::stringstream ss(av[i]);
-        int val;
-
-
-        ss >> val;
-        if (ss.fail() || val < 0) {
-            throw InvalidValueError();
-        }
-        vec.push_back(val);
-        deq.push_back(val);
-    }
+		ss >> val;
+		if (ss.fail() || val < 0)
+			throw InvalidValueError();
+		vec.push_back(val);
+		deq.push_back(val);
+	}
 }
+
