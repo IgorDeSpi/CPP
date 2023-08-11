@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:04:18 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/07/14 15:14:08 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/08/11 09:59:38 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ float	Change_String_To_Float(const std::string& str)
 {
 	int	i = 0;
 	int	sign = 1;
-	long	res = 0;
+	float	res = 0;
 	float	res2 = 0;
 	float	res3 = 0;
 	float	decimal = 0.1;
@@ -113,7 +113,9 @@ float	Change_String_To_Float(const std::string& str)
 		decimal *= 0.1;
 		i++;
 	}
-	res3 = (float)res + res2;
+	if (str[i] == '\0')
+		res3 = res + res2;
+	res3 *= sign;
 	return (res3);
 }
 
@@ -135,14 +137,15 @@ int	BitcoinExchange::Check_Data_Value(const std::string& value)
 
 int	BitcoinExchange::Check_Final_Data_Value(const float& value)
 {
-	if (static_cast<long int>(value) < 0)
+	// std::cout << "const float value : " << value << std::endl;
+	if (value < 0)
 	{
 		std::cout << "Error: Not a positive number." << std::endl;
 		return (1);
 	}
-	if (static_cast<long int>(value) > 1000)
+	if (value > 1000)
 	{
-		std::cout << "Error: Too large a number." << std::endl;
+		std::cout << "Error: Too large number." << std::endl;
 		return (1);
 	}
 	return (0);
@@ -154,9 +157,9 @@ int	BitcoinExchange::Check_Date(const std::string& date)
 	std::string	month;
 	std::string	day;
 	int			count = 0;
-	long int	len = date.length();
-	if (len != 10)
-		return (1);
+	// long int	len = date.length();
+	// if (len != 10)
+	// 	return (1);
 	for (int i = 0; i < (int)date.length(); i++)
 	{
 		if (i != 0 && date[i] == '-')
@@ -170,11 +173,11 @@ int	BitcoinExchange::Check_Date(const std::string& date)
 		else if (count == 2)
 			day += date[i];
 	}
-	if (year.length() != 4 || month.length() != 2 || day.length() != 2)
-		return (1);
+	// if (year.length() != 4 || month.length() != 2 || day.length() != 2)
+	// 	return (1);
 	int	iyear = atoi(year.c_str());
-	if (iyear <= 0 || iyear > 2023)
-		return (1);
+	// if (iyear <= 0)
+	// 	return (1);
 	int	imonth = atoi(month.c_str());
 	if (imonth <= 0 || imonth > 12)
 		return (1);
@@ -350,7 +353,9 @@ void	BitcoinExchange::Search_File_Parser(const std::string& filename)
 					break ;
 				}
 				if (Check_Final_Data_Value(value) == 1)
+				{
 					break ;
+				}
 				else
 				{
 					date = Close_Date(tmp);
