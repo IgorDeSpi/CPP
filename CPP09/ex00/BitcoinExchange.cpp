@@ -6,7 +6,7 @@
 /*   By: ide-spir <ide-spir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:04:18 by ide-spir          #+#    #+#             */
-/*   Updated: 2023/08/14 12:49:03 by ide-spir         ###   ########.fr       */
+/*   Updated: 2023/08/15 16:58:54 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -377,25 +377,121 @@ static bool printError(const std::string &line)
 	return false;
 }
 
-static bool validateDate(std::string &date)
+bool	isValidDate(int day, int month, int year)
 {
-	if (date.length() != 10)
-		return printError(date);
-
-	std::istringstream str(date);
-	int val;
-	str >> val;
-	if (str.fail() || val < 0 || val > 9999 || str.peek() != '-')
-		return printError(date);
-	str.ignore();
-	str >> val;
-	if (str.fail() || val < 1 || val > 12 || str.peek() != '-')
-		return printError(date);
-	str.ignore();
-	str >> val;
-	if (str.fail() || val < 1 || val > 31 || !str.eof())
-		return printError(date);
+	if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31)
+		return false;
+	if (month == 4 || month == 6 || month == 9 || month == 11)
+	{
+		if (day > 30)
+			return false;
+	}
+	else if (month == 2)
+	{
+		if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
+		{
+			if (day > 29)
+			{
+				return false;
+			}
+		}
+		else
+		{
+			if (day > 28)
+			{
+				return false;
+			}
+		}
+	}
 	return true;
+}
+
+// int	BitcoinExchange::Check_Date(const std::string& date)
+// {
+// 	std::string	year;
+// 	std::string	month;
+// 	std::string	day;
+// 	int			count = 0;
+// 	long int	len = date.length();
+// 	if (len != 10)
+// 		return (1);
+// 	for (int i = 0; i < (int)date.length(); i++)
+// 	{
+// 		if (i != 0 && date[i] == '-')
+// 			count++;
+// 		else if (date[i] < '0' || date[i] > '9')
+// 			return (1);
+// 		else if (count == 0)
+// 			year += date[i];
+// 		else if (count == 1)
+// 			month += date[i];
+// 		else if (count == 2)
+// 			day += date[i];
+// 	}
+// 	if (year.length() != 4 || month.length() != 2 || day.length() != 2)
+// 		return (1);
+// 	int	iyear = atoi(year.c_str());
+// 	if (iyear <= 0)
+// 		return (1);
+// 	int	imonth = atoi(month.c_str());
+// 	if (imonth <= 0 || imonth > 12)
+// 		return (1);
+// 	int	iday = atoi(day.c_str());
+// 	if (iday <= 0 || iday > 31)
+// 		return (1);
+// 	if (isValidDate(iday, imonth, iyear) == false)
+// 		return (1);
+// 	return (0);
+// }
+
+static bool checkDate(std::string &date)
+{
+	std::string	year;
+	std::string	month;
+	std::string	day;
+	int	count = 0;
+	long int	len = date.length();
+	if (len != 10)
+		return (printError(date));
+	for (int i = 0; i < (int)date.length(); i++)
+	{
+		if (i != 0 && date[i] == '-')
+			count++;
+		else if (date[i] < '0' || date[i] > '9')
+			return (printError(date));
+		else if (count == 0)
+			year += date[i];
+		else if (count == 1)
+			month += date[i];
+		else if (count == 2)
+			day += date[i];
+	}
+	if (year.length() != 4 || month.length() != 2 || day.length() != 2)
+		return (printError(date));
+	int	iyear = atoi(year.c_str());
+	if (iyear <= 0)
+		return (printError(date));
+	int	imonth = atoi(month.c_str());
+	if (imonth <= 0 || imonth > 12)
+		return (printError(date));
+	int	iday = atoi(day.c_str());
+	if (iday <= 0 || iday > 31)
+		return (printError(date));
+	if (isValidDate(iday, imonth, iyear) == false)
+		return (printError(date));
+	return (true);
+}
+
+static bool printNegError()
+{
+	std::cerr << "Error: not a positive number." << '\n';
+	return false;
+}
+
+static bool printTooLargeError()
+{
+	std::cerr << "Error: too large a number." << '\n';
+	return false;
 }
 
 static bool parseLine(std::ifstream &in, const char *delims, bool checkVal, std::string &date, float &val) {
@@ -410,7 +506,7 @@ static bool parseLine(std::ifstream &in, const char *delims, bool checkVal, std:
 		return printError(line);
 	// get date
 	date = line.substr(0, i);
-	if (!validateDate(date))
+	if (!checkDate(date))
 		return false;
 	// skip spaces and delim
 	i = line.find_first_not_of(delims, i);
@@ -418,8 +514,15 @@ static bool parseLine(std::ifstream &in, const char *delims, bool checkVal, std:
 	const char *floatP = line.c_str() + i;
 	char *endP;
 	val = std::strtof(floatP, &endP);
-	if (val < 0 || (checkVal && (val == 0 || val > 1000)))
-		return printError(std::string(floatP));
+	if (val < 0 || (checkVal && val > 1000))
+	{
+		if (val < 0)
+			return (printNegError());
+		else if(val > 1000)
+			return (printTooLargeError());
+		else
+			return printError(std::string(floatP));
+	}
 	return true;
 }
 
