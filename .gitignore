@@ -1,4 +1,5 @@
 *.o
 .vscode
-https://github.com/BekxFR/CPP_Pool/blob/main/cpp04/ex00/sources/Animal.cpp
-https://github.com/lrocca/cpp04
+generate_data.py
+generate_data.sh
+/CPP09/ex00/input.txt
